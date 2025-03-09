@@ -1,85 +1,108 @@
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
-<head>
-    <title>Live Streaming</title>
+  <head>
+    <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="images/apple-touch-icon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:400,500%7CIbarra+Real+Nova:400,600,600i,700">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
-</head>
-<body onload="loadStream()">  <!-- Load default stream on page load -->
-    <div class="page">
-        <header class="section page-header">
-            <div class="rd-navbar-wrap">
-                <nav class="rd-navbar rd-navbar-classic">
-                    <div class="rd-navbar-main">
-                        <div class="rd-navbar-panel">
-                            <div class="rd-navbar-brand">
-                                <a class="brand" href="index.html">
-                                    <img class="brand-logo-dark" src="images/logo-default-189x54.jpg" alt="Logo" width="94" height="27"/>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="rd-navbar-main-element">
-                            <div class="rd-navbar-nav-wrap">
-                                <ul class="rd-navbar-nav">
-                                    <li class="rd-nav-item"><a class="rd-nav-link" href="index.html">Home</a></li>
-                                    <li class="rd-nav-item active"><a class="rd-nav-link" href="live-stream.html">Live Streaming</a></li>
-                                    <li class="rd-nav-item"><a class="rd-nav-link" href="contacts.html">Contact</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </header>
+    
+    <!-- Facebook SDK -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0"></script>
 
-        <section class="section section-lg bg-default text-center">
-            <div class="container">
-                <h2>Live Streaming</h2>
-                <p>Insert a Facebook or YouTube live link below to watch the live stream.</p>
-                
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <input type="text" id="stream-link" class="form-control" placeholder="Enter Facebook or YouTube Live Link">
-                        <button class="btn btn-primary mt-3" onclick="loadStream()">Watch Live</button>
-                    </div>
-                </div>
-
-                <div id="live-stream-container" class="mt-5">
-                    <!-- Default stream loads here -->
-                </div>
-            </div>
-        </section>
+    <style>
+      .ie-panel { display: none; background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index: 1; }
+      html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel { display: block; }
+    </style>
+  </head>
+  <body>
+    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+        <p>Loading...</p>
+      </div>
     </div>
 
-    <script>
-        function loadStream() {
-            let input = document.getElementById("stream-link")?.value.trim();
-            let container = document.getElementById("live-stream-container");
+    <div class="page">
+      <header class="section page-header">
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            <div class="rd-navbar-main-outer">
+              <div class="rd-navbar-main">
+                <div class="rd-navbar-panel">
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                  <div class="rd-navbar-brand">
+                    <a class="brand" href="index.html"><img class="brand-logo-dark" src="images/logo-default-189x54.jpg" alt="" width="94" height="27"/><img class="brand-logo-light" src="images/logo-default-189x54.png" alt="" width="94" height="27"/></a>
+                  </div>
+                </div>
+                <div class="rd-navbar-main-element">
+                  <div class="rd-navbar-nav-wrap">
+                    <ul class="rd-navbar-nav">
+                      <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html">Home</a></li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="about-us.html">About Us</a></li>
+                      <li class="rd-nav-item">
+                        <a class="rd-nav-link" href="ministries.html">Ministries</a>
+                        <ul class="rd-menu rd-navbar-dropdown">
+                          <li class="rd-dropdown-item">
+                            <a class="rd-dropdown-link" href="study.html">Bible Study</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-nav-item">
+                        <a class="rd-nav-link" href="events.html">Events</a>
+                        <ul class="rd-menu rd-navbar-dropdown">
+                          <li class="rd-dropdown-item">
+                            <a class="rd-dropdown-link" href="single-events.html">Upcoming</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="contacts.html">Contacts</a></li>
+                    </ul>
+                  </div>
+                </div>  
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
 
-            // Default YouTube Live Stream (Replace this with your default stream link)
-            let defaultStream = "https://www.youtube.com/embed/live_stream?channel=UC4R8DWoMoI7CAwX8_LjQHig"; // Example YouTube Live
+      <!-- Intro Section -->
+      <section class="section section-lg section-intro">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-8 text-center">
+              <h1 class="font-weight-bold text-primary wow fadeInUp" data-wow-delay=".1s">CHERUBIM & SERAPHIM VOICE OF GOD PROPHETIC FIRE MINISTRIES</h1>
+              <p class="wow fadeInUp text-sm" data-wow-delay=".2s">(ORI-OKE EDIDI AGBARA)</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            if (!input) {
-                // Load default stream if no link is entered
-                container.innerHTML = `<iframe width="100%" height="500" src="${defaultStream}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
-                return;
-            }
+      <!-- Embedded Facebook Videos Section -->
+      <section class="section section-lg">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="fb-video" data-href="https://web.facebook.com/reel/596370110054462" data-width="500" data-show-text="false"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="fb-video" data-href="https://web.facebook.com/reel/1181903870321836" data-width="500" data-show-text="false"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="fb-video" data-href="https://fb.watch/ydQENEl-qr/" data-width="500" data-show-text="false"></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            if (input.includes("youtube.com") || input.includes("youtu.be")) {
-                let videoId = input.split("v=")[1]?.split("&")[0] || input.split("youtu.be/")[1]?.split("?")[0];
-                container.innerHTML = `<iframe width="100%" height="500" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
-            } else if (input.includes("facebook.com")) {
-                container.innerHTML = `<iframe src="${input}" width="100%" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>`;
-            } else {
-                container.innerHTML = `<p style="color: red;">Invalid link. Please enter a valid Facebook or YouTube live stream URL.</p>`;
-            }
-        }
-    </script>
-
-</body>
+    </div>  
+  </body>
 </html>
