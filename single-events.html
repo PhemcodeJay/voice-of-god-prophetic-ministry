@@ -11,58 +11,175 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-        .event-card {
-            border-radius: 10px;
-            overflow: hidden;
-            background: #fff;
-            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-            transition: 0.3s ease-in-out;
-        }
-        .event-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0px 6px 12px rgba(0,0,0,0.2);
-        }
-        .event-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .event-card .content {
-            padding: 20px;
-        }
-        .event-card .date {
-            font-size: 14px;
-            color: #555;
-        }
-        .event-card h3 {
-            font-size: 20px;
-            margin: 10px 0;
-        }
-        .share-buttons {
-            margin-top: 15px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .share-buttons a {
-            text-decoration: none;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 5px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-        }
-        .share-buttons a i {
-            margin-right: 5px;
-        }
-        .facebook { background: #3b5998; }
-        .twitter { background: #1da1f2; }
-        .whatsapp { background: #25d366; }
-    </style>
+    
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Event Container */
+  .event-container {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 10px 0;
+  }
+  
+  /* Scrollbar Styling */
+  .event-container::-webkit-scrollbar {
+      height: 8px;
+  }
+  
+  .event-container::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+  }
+  
+  .event-container::-webkit-scrollbar-track {
+      background: #f1f1f1;
+  }
+  
+  /* Event Card */
+  .event-card {
+      min-width: 300px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+  }
+  
+  .event-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Event Image */
+  .event-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+  }
+  
+  /* Event Content */
+  .event-card .content {
+      padding: 15px;
+      text-align: center;
+  }
+  
+  .event-card .date {
+      font-size: 14px;
+      color: #555;
+  }
+  
+  .event-card h3 {
+      font-size: 18px;
+      margin: 10px 0;
+  }
+  
+  /* Share Buttons */
+  .share-buttons {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .share-buttons a {
+      text-decoration: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+  }
+  
+  .share-buttons a i {
+      margin-right: 5px;
+  }
+  
+  .facebook {
+      background: #3b5998;
+  }
+  
+  .twitter {
+      background: #1da1f2;
+  }
+  
+  .whatsapp {
+      background: #25d366;
+  }
+  
+  /* Modal */
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+      background: #fff;
+      padding: 20px;
+      max-width: 500px;
+      text-align: center;
+      border-radius: 10px;
+      position: relative;
+      animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .modal-content img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+  }
+  
+  /* Close Button */
+  .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+  }
+  
+  /* Share Buttons Inside Modal */
+  .modal .share-buttons {
+      display: flex;
+      justify-content: center;
+  }
+  
+  .modal .share-buttons a {
+      margin: 10px;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      color: #fff;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+          transform: scale(0.9);
+      }
+      to {
+          opacity: 1;
+          transform: scale(1);
+      }
+  }
+</style>
 </head>
 <body>
     <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
@@ -125,7 +242,7 @@
                         <a class="rd-nav-link" href="ministries.html">Ministries</a>
                         <ul class="rd-menu rd-navbar-dropdown">
                           <li class="rd-dropdown-item">
-                            <a class="rd-dropdown-link" href="study.html">Bible Study</a>
+                            <a class="rd-dropdown-link" href="study.html">Prophetic Message</a>
                           </li>
                         </ul>
                       </li>
@@ -134,7 +251,8 @@
                         <a class="rd-nav-link" href="events.html">Events</a>
                         <ul class="rd-menu rd-navbar-dropdown">
                           <li class="rd-dropdown-item">
-                            <a class="rd-dropdown-link" href="single-events.html">Upcoming</a>
+                            <a class="rd-dropdown-link" href="single-events.html">Event Hub</a>
+                            <a class="rd-dropdown-link" href="gallery.html">Media Gallery</a>
                           </li>
                         </ul>
                       </li>
@@ -150,69 +268,101 @@
       </header>
     <section class="section section-vide section-lg video-wrap vide" data-vide-bg="video/video-10">
         <div class="container text-center context-dark">
-          <div class="h1">Upcoming Events</div>
+          <div class="h1">Programmes and Events</div>
           <p class="text-sm">VOICE OF GOD PROHETIC FIRE MINISTRIES</p>
         </div>
       </section>
-    <section class="section section-lg bg-default">
+      <section class="section section-lg bg-default">
         <div class="container">
-            <h2 class="text-center">Upcoming Events</h2>
-            <div class="row">
-                
+            <h2 class="text-center">Events Gallery</h2>
+    
+            <!-- Scrollable Events Wrapper -->
+            <div class="event-container">
+              <!-- Event Card 1 -->
+              <div class="event-card" onclick="openModal('Prophetic Sunday Service', 'Join us for an engaging and powerful prophetic ministration.', 'images/event-10.jpg')">
+                <img src="images/event-100.jpg" alt="Event 1">
+                <div class="content">
+                    <span class="date">VOICE OF GOD PROPHETIC FIRE MINISTRIES</span>
+                    <h3>Israel and Jordan Tour</h3>
+                </div>
+                </div>
                 <!-- Event Card 1 -->
-                <div class="col-lg-4">
-                    <div class="event-card">
-                        <img src="images/event-10.jpg" alt="Event 1">
-                        <div class="content">
-                            <span class="date">VOICE OF GOD PROHETIC FIRE MINISTRIES</span>
-                            <h3>Prophetic Sunday Servicce</h3>
-                            <p>Join us for an engaging and powerful prophetic ministration.</p>
-                            <div class="share-buttons">
-                                <a href="#" class="facebook" onclick="shareEvent('facebook', 'Why Do Sermons Matter?')"><i class="fab fa-facebook-f"></i>Share</a>
-                                <a href="#" class="twitter" onclick="shareEvent('twitter', 'Why Do Sermons Matter?')"><i class="fab fa-twitter"></i>Tweet</a>
-                                <a href="#" class="whatsapp" onclick="shareEvent('whatsapp', 'Why Do Sermons Matter?')"><i class="fab fa-whatsapp"></i>Share</a>
-                            </div>
-                        </div>
+                <div class="event-card" onclick="openModal('Prophetic Sunday Service', 'Join us for an engaging and powerful prophetic ministration.', 'images/event-10.jpg')">
+                    <img src="images/event-10.jpg" alt="Event 1">
+                    <div class="content">
+                        <span class="date">VOICE OF GOD PROPHETIC FIRE MINISTRIES</span>
+                        <h3>Prophetic Sunday Service</h3>
                     </div>
                 </div>
-
+    
                 <!-- Event Card 2 -->
-                <div class="col-lg-4">
-                    <div class="event-card">
-                        <img src="images/event-20.jpg" alt="Event 2">
-                        <div class="content">
-                            <span class="date">VOICE OF GOD PROHETIC FIRE MINISTRIES</span>
-                            <h3>Youth Seminar</h3>
-                            <p>Understand how personal challenges with leadership can strengthen faith as youths.</p>
-                            <div class="share-buttons">
-                                <a href="#" class="facebook" onclick="shareEvent('facebook', 'Disappointment With Your Pastor')"><i class="fab fa-facebook-f"></i>Share</a>
-                                <a href="#" class="twitter" onclick="shareEvent('twitter', 'Disappointment With Your Pastor')"><i class="fab fa-twitter"></i>Tweet</a>
-                                <a href="#" class="whatsapp" onclick="shareEvent('whatsapp', 'Disappointment With Your Pastor')"><i class="fab fa-whatsapp"></i>Share</a>
-                            </div>
-                        </div>
+                <div class="event-card" onclick="openModal('Youth Seminar', 'Understand how personal challenges with leadership can strengthen faith as youths.', 'images/event-20.jpg')">
+                    <img src="images/event-20.jpg" alt="Event 2">
+                    <div class="content">
+                        <span class="date">VOICE OF GOD PROPHETIC FIRE MINISTRIES</span>
+                        <h3>Youth Seminar</h3>
                     </div>
                 </div>
-
+    
                 <!-- Event Card 3 -->
-                <div class="col-lg-4">
-                    <div class="event-card">
-                        <img src="images/event-30.jpg" alt="Event 3">
-                        <div class="content">
-                            <span class="date">VOICE OF GOD PROHETIC FIRE MINISTRIES</span>
-                            <h3>Power of Praise and Prayer</h3>
-                            <p>Experience Powerful Worship and Prayers in his Presence.</p>
-                            <div class="share-buttons">
-                                <a href="#" class="facebook" onclick="shareEvent('facebook', 'Everyday Evangelism')"><i class="fab fa-facebook-f"></i>Share</a>
-                                <a href="#" class="twitter" onclick="shareEvent('twitter', 'Everyday Evangelism')"><i class="fab fa-twitter"></i>Tweet</a>
-                                <a href="#" class="whatsapp" onclick="shareEvent('whatsapp', 'Everyday Evangelism')"><i class="fab fa-whatsapp"></i>Share</a>
-                            </div>
-                        </div>
+                <div class="event-card" onclick="openModal('Power of Praise and Prayer', 'Experience Powerful Worship and Prayers in His Presence.', 'images/event-30.jpg')">
+                    <img src="images/event-30.jpg" alt="Event 3">
+                    <div class="content">
+                        <span class="date">VOICE OF GOD PROPHETIC FIRE MINISTRIES</span>
+                        <h3>Power of Praise and Prayer</h3>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
+    
+    <!-- Event Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Event Image">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <div class="share-buttons">
+                <a href="#" class="facebook" onclick="shareEvent('facebook')"><i class="fab fa-facebook-f"></i> Share</a>
+                <a href="#" class="twitter" onclick="shareEvent('twitter')"><i class="fab fa-twitter"></i> Tweet</a>
+                <a href="#" class="whatsapp" onclick="shareEvent('whatsapp')"><i class="fab fa-whatsapp"></i> Share</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+    
+    <script>
+        function openModal(title, description, image) {
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalDescription").innerText = description;
+            document.getElementById("modalImage").src = image;
+            document.getElementById("eventModal").style.display = "flex";
+        }
+    
+        function closeModal() {
+            document.getElementById("eventModal").style.display = "none";
+        }
+    
+        function shareEvent(platform) {
+            let title = document.getElementById("modalTitle").innerText;
+            let url = window.location.href; // Use current page URL
+    
+            let shareUrl = "";
+            if (platform === "facebook") {
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(title)}`;
+            } else if (platform === "twitter") {
+                shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+            } else if (platform === "whatsapp") {
+                shareUrl = `https://wa.me/?text=${encodeURIComponent(title + " " + url)}`;
+            }
+    
+            window.open(shareUrl, "_blank");
+        }
+    </script>
+    
     <section class="section section-lg bg-default">
         <div class="container">
           <div class="row row-30 align-items-center flex-column-reverse flex-lg-row">
@@ -233,26 +383,7 @@
               <p class="wow fadeInUp text-sm"></p><a class="wow fadeInUp shadow btn btn-md btn-secondary offset-xl-50 wow fadeInUp" href="donations.html" data-wow-delay=".3s">Donate now</a>
             </div>
           </section>
-    <script>
-        function shareEvent(platform, title) {
-            let url = window.location.href;
-            let shareUrl = "";
-
-            switch (platform) {
-                case "facebook":
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`;
-                    break;
-                case "twitter":
-                    shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
-                    break;
-                case "whatsapp":
-                    shareUrl = `https://api.whatsapp.com/send?text=${title} - ${url}`;
-                    break;
-            }
-
-            window.open(shareUrl, '_blank');
-        }
-    </script>
+    
 <footer class="section footer-classic">
     <div class="footer-body">
       <div class="container">
@@ -312,5 +443,25 @@
 <div class="snackbars" id="form-output-global"></div>
 <script src="js/core.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+  function shareEvent(platform, title) {
+      let url = window.location.href;
+      let shareUrl = "";
+
+      switch (platform) {
+          case "facebook":
+              shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`;
+              break;
+          case "twitter":
+              shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+              break;
+          case "whatsapp":
+              shareUrl = `https://api.whatsapp.com/send?text=${title} - ${url}`;
+              break;
+      }
+
+      window.open(shareUrl, '_blank');
+  }
+</script>
 </body>
 </html>
