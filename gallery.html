@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Media Gallery - Voice of God Prophetic Fire Ministries</title>
-
+    <title>Media Gallery</title>
+    
+    <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
     <!-- Favicon -->
     <link rel="icon" href="images/apple-touch-icon.png" type="image/x-icon">
 
@@ -68,7 +69,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: orange;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -84,7 +85,7 @@
             color: white;
             font-size: 20px;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            text-shadow: orange;
         }
 
         /* Footer Styling */
@@ -113,7 +114,7 @@
         }
 
         .social-list a {
-            color: #333;
+            color: purple;
             font-size: 1.5rem;
             transition: color 0.3s;
         }
@@ -147,26 +148,21 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="about-us.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
                         <!-- Dropdown for Events -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="ministries.html" id="eventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item">
+                            <a class="nav-link" href="ministries.html" id="eventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Ministry
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="eventsDropdown">
-                                <li><a class="dropdown-item" href="study.html">Prophetic Message</a></li>
-                            </ul>
+                           
                         </li>
                         
                         <!-- Dropdown for Events -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="events.html" id="eventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="events.html" id="eventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Events
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="eventsDropdown">
-                                <li><a class="dropdown-item" href="single-events.html">Event Hub</a></li>
-                                <li><a class="dropdown-item" href="gallery.html">Media Gallery</a></li>
-                            </ul>
+                            
                         </li>
                 
                         <li class="nav-item"><a class="nav-link" href="contacts.html">Contact</a></li>
@@ -176,7 +172,7 @@
             </div>
         </nav>
     </header>
-
+    
     <!-- Main Content -->
     <div class="container gallery-container">
         <h1 class="text-center">Media Gallery</h1>
@@ -316,6 +312,80 @@
         </div>
     </div>
 </div>
+ <!-- Image Gallery with Carousel -->
+ <div class="row mt-4">
+    <!-- Gallery Item 1 -->
+    <div class="col-md-4">
+        <div id="carouselGallery1" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/pics/gallery4.jpg" class="d-block w-100" alt="Gallery Image 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/pics/gallery4-2.jpg" class="d-block w-100" alt="Gallery Image 1-2">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/pics/gallery4-3.jpg" class="d-block w-100" alt="Gallery Image 1-3">
+                </div>
+                
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselGallery1" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselGallery1" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Gallery Item 2 -->
+    <div class="col-md-4">
+        <div id="carouselGallery2" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/pics/gallery5.jpg" class="d-block w-100" alt="Gallery Image 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/pics//gallery5-2.jpg" class="d-block w-100" alt="Gallery Image 2-2">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/pics//gallery5-3.jpg" class="d-block w-100" alt="Gallery Image 2-3">
+                </div>
+                
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselGallery2" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselGallery2" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Gallery Item 3 -->
+    <div class="col-md-4">
+        <div id="carouselGallery3" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/pics/gallery6.jpg" class="d-block w-100" alt="Gallery Image 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/pics/gallery6-2.jpg" class="d-block w-100" alt="Gallery Image 3-2">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/pics/gallery6-3.jpg" class="d-block w-100" alt="Gallery Image 3-3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselGallery3" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselGallery3" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+</div>
+
     <!-- Footer -->
     <footer class="section footer-classic">
         <div class="footer-body">
@@ -324,7 +394,7 @@
                     <div class="col-lg-6">
                         <div class="row row-20">
                             <div class="col-sm-4 col-6">
-                                <div class="footer-title">Who We Are</div>
+                                <div class="footer-title">SiteMap</div>
                                 <ul class="nav-list list-unstyled">
                                     <li><a href="about-us.html">About Us</a></li>
                                     <li><a href="ministries.html">Ministries</a></li>
@@ -336,7 +406,7 @@
                                 <ul class="nav-list list-unstyled">
                                     <li><a href="donations.html">Donate Now</a></li>
                                     <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li><a href="gallery.html">Gallery</a></li>
+                                    <li><a href="events.html">Events</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -373,7 +443,7 @@
                 <div class="row row-xl-40">
                     <div class="col-12">
                         <p>
-                            CHERUBIM & SERAPHIM VOICE OF GOD PROPHETIC FIRE MINISTRIES is a place of deliverance and prophetic ministry, where faith in God is nurtured through the power of His Word and Spirit. We are committed to teaching the Bible and leading joyful worship, while embracing the transformative power of deliverance and prophecy. Our ministry serves people of all ages—children, youth, and adults—equipping them to walk in the fullness of God's calling and to serve others with love and grace.
+                            CHERUBIM & SERAPHIM VOICE OF GOD PROPHETIC & FIRE MINISTRIES is a place of deliverance and prophetic ministry, where faith in God is nurtured through the power of His Word and Spirit. We are committed to teaching the Bible and leading joyful worship, while embracing the transformative power of deliverance and prophecy. Our ministry serves people of all ages—children, youth, and adults—equipping them to walk in the fullness of God's calling and to serve others with love and grace.
                         </p>
                         <p>
                             We invite you to experience the life-changing power of deliverance and prophecy as part of our spiritual family. You will find a welcoming atmosphere where each person is embraced and empowered. At Rise Church, we take seriously our mission: "To Know Jesus and make Him known; To Be Led by the Holy Spirit in all things; and to Proclaim God's Word to the world, bringing deliverance and prophetic insight to those in need."
@@ -381,7 +451,7 @@
                     </div>
                     <div class="col-12">
                         <p class="rights">
-                            © <span id="copyright-year"></span> VOICE OF GOD PROPHETIC FIRE MINISTRIES. All Rights Reserved.
+                            © <span id="copyright-year"></span> VOICE OF GOD PROPHETIC & FIRE MINISTRIES. All Rights Reserved.
                         </p>
                     </div>
                 </div>
